@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@font-face {
+    font-family: 'Share Tech';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/sharetech/v21/7cHtv4Uyi5K0OeZ7bohU8H0JmA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    size-adjust: 115%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-color: #241C27;
+    font-family: "Open Sans", sans-serif;
+    @apply text-zinc-950;
+}
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+@layer base {
+    h1 {
+        @apply text-2xl mt-4 mb-8 font-bold;
+    }
+
+    h2 {
+        @apply text-xl mt-2 mb-4 font-semibold;
+    }
+
+    h3 {
+        @apply text-lg mt-1 mb-2 font-medium;
+    }
+}
+
+.nav-link {
+    @apply relative lg:block w-fit p-4 after:block after:content-[''] after:absolute after:h-[3px] after:bg-berry-20 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center
+}
+
+.active {
+    /* from browser router react */
+    @apply text-berry-20;
+}
+
+.sidebar {
+    @apply fixed top-0 left-0 z-40 h-screen w-[290px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300
+}
+
+/* width */
+::-webkit-scrollbar {
+    @apply w-1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    @apply bg-zinc-200;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-zinc-400;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-500 transition-all duration-300;
+}
+
+img {
+    @apply pointer-events-none
+}
+
+.tag {
+    @apply inline-block py-1 px-3 m-1 font-consolas bg-zinc-100 rounded-full text-sm
+}
+
+.btn-dark {
+    @apply text-white hover:bg-grey transition-all duration-200 bg-dark
+}
+
+.btn-berry {
+    @apply text-white hover:bg-berry-20 transition-all duration-200 bg-berry-60
+}
+
+.markdown>* {
+    all: revert;
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_galleries",
+  "info": {
+    "displayName": "Gallery",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_media",
+  "info": {
+    "displayName": "Media",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "Media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Caption": {
+      "type": "text"
+    }
+  }
+}
