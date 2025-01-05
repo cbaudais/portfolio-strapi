@@ -39,16 +39,20 @@ body,
 
 @layer base {
     h1 {
-        @apply text-2xl mt-4 mb-8 font-bold;
+        @apply text-2xl mt-4 mb-8 font-bold font-heading;
     }
 
     h2 {
-        @apply text-xl mt-2 mb-4 font-semibold;
+        @apply text-xl mt-2 mb-4 font-medium;
     }
 
     h3 {
-        @apply text-lg mt-1 mb-2 font-medium;
+        @apply text-lg mt-1 mb-2;
     }
+}
+
+p a {
+    @apply text-berry-60
 }
 
 .nav-link {

@@ -19,9 +19,6 @@
     "slug": {
       "type": "uid"
     },
-    "date": {
-      "type": "date"
-    },
     "featured": {
       "type": "boolean",
       "default": false

@@ -1,7 +1,7 @@
-// import { FallbackFetch } from "@/components/ErrorFallback";
+import { FallbackFetch } from "@/components/ErrorFallback";
 import { Section } from "@/components/Section";
 import PostList from "@/components/PostList";
-// import { ErrorBoundary } from "react-error-boundary";
+import { ErrorBoundary } from "react-error-boundary";
 
 export default function TwoDWork() {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -27,9 +27,9 @@ export default function TwoDWork() {
     <Section>
       <>
         <h1>2D Work</h1>
-        {/* <ErrorBoundary FallbackComponent={FallbackFetch}> */}
+        <ErrorBoundary FallbackComponent={FallbackFetch}>
           <PostList query={path} urlParamsObject={params} options={options} />
-        {/* </ErrorBoundary> */}
+        </ErrorBoundary>
       </>
     </Section>
   )

@@ -8,7 +8,8 @@ export function getStrapiURL(path = '') {
 
 export function getStrapiMedia(url: string | null) {
     if (url == null) {
-        return null;
+        // return '/placeholder1024.png';
+        return '/noImageFound1024.png';
     }
 
     // Return the full URL regardless of whether the media is hosted externally or within the Strapi API.
