@@ -28,7 +28,7 @@ export function getStrapiMedia(url: string | null) {
 // }
 
 export async function fetchAPI(
-    path: string, // (1) API endpoint path
+    query: string, // (1) API endpoint path
     urlParamsObject = {}, // (2) object containing URL parameters
     options = {} // (3) object containing additional options for the API call
 ) {
@@ -45,12 +45,13 @@ export async function fetchAPI(
     // Build request URL
     const queryString = qs.stringify(urlParamsObject); // (2)
     const requestUrl = `${getStrapiURL(
-        `/api${path}${queryString ? `?${queryString}` : ""}`
+        `/api${query}${queryString ? `?${queryString}` : ""}`
     )}`; // get Strapi URL, pass in path (1) & query from urlParams obj (2)
 
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();
+    
     return data;
 
     } catch (error) {

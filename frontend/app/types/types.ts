@@ -22,3 +22,5 @@ export type strapiProjects = {
         url: string;
     };
 }
+
+export type strapiCategories = strapiProjects["categories"][number]

@@ -1,28 +1,53 @@
 'use client';
 import { useEffect, useState } from "react";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconBrandInstagram, IconBrandLinkedin, IconFileCv, IconMenu2, IconX } from "@tabler/icons-react";
 import Footer from "./Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { strapiProjects } from "@/types/types";
-import useFetch from "@/utils/useFetch";
+import { strapiCategories } from "@/types/types";
+import Loader from "./Loader";
+import { fetchAPI } from "@/utils/fetch-api";
+import { ErrorBoundary } from "react-error-boundary";
+import { FallbackNav } from "./ErrorFallback";
 
 useState;
 useEffect;
 
-const Navbar = () => {
+const Navbar = ({
+  query: query,
+  urlParamsObject: urlParamsObject,
+  options: options
+}: {
+  query: string;
+  urlParamsObject?: {};
+  options?: {};
+}) => {
   const sideIcons = "p-2 hover:text-berry-60 transition-all duration-300 ease-in-out";
   const [sidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsSidebarOpen(false); // Close the navigation panel
-  }, [pathname]);
+  }, [pathname]); 
 
-  // const date = new Date();
-  // const year = date.getFullYear();
-  // const {data} = useFetch('/categories')
-  // const categories = data;
+  const [categories, setData] = useState<any>([]);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+      const fetchData = async () => {
+          setLoading(true); 
+          try {
+              const responseData = await fetchAPI(query, urlParamsObject, options);
+              setData(responseData);      
+          } catch (error) {
+              console.error(error);
+          } finally {
+              setLoading(false);
+          }
+      };
+      fetchData();
+  }, [query, urlParamsObject, options]);
+  if (isLoading) return <Loader/>
+  if (categories.data == 0) return <p>Nothing here yet...</p>
 
   return (
     <header>
@@ -34,29 +59,38 @@ const Navbar = () => {
           </Link>
           <nav id="menu">
           <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">
-              <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
-              <Link href="/2d-work" className={`nav-link ${pathname === '/2d-work' ? 'active' : ''}`}>2D Work</Link>
-              <Link href="/3d-work" className={`nav-link ${pathname === '/3d-work' ? 'active' : ''}`}>3D Work</Link>
-              <Link href="/games" className={`nav-link ${pathname === '/games' ? 'active' : ''}`}>Games</Link>
-              {/* {categories.data.map((category:strapiCategories) => (
-                <Link key={category.id} href={`/${encodeURIComponent(category.)}`}>
-                  {category.name}
-                </Link>
-              ))} */}
-              <Link href="/about" className={`nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
-              <Link href="/blog" className={`nav-link ${pathname === '/blog' ? 'active' : ''}`}>Blog</Link>
+              <li className="nav-link">
+                <Link href="/" className={`${pathname === '/' ? 'active' : ''}`}>Home</Link>
+              </li>
+              <ErrorBoundary FallbackComponent={FallbackNav}>
+              {categories.data.map((category: strapiCategories) => {
+                return (
+                <li key={category.id} className="nav-link">
+                    <Link href={category.slug} className={`${pathname === category.slug ? 'active' : ''}`}>
+                        {category.name}
+                    </Link>
+                </li>
+                )
+              })}
+              </ErrorBoundary>
+              <li className="nav-link">
+                <Link href="/about" className={`${pathname === '/about' ? 'active' : ''}`}>About</Link>
+              </li>
+              <li className="nav-link">
+                <Link href="/blog" className={`${pathname === '/blog' ? 'active' : ''}`}>Blog</Link>
+              </li>
             </ul>
           </nav>
           <p className="m-4">cbwbaudais@outlook.com</p>
           <div className="flex items-center mt-2 mb-8">
             <a href="/assets/BaudaisChristinaResume.pdf" target="_blank" className={`${sideIcons}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-file-cv"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M11 12.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" /><path d="M13 11l1.5 6l1.5 -6" /></svg>
+              <IconFileCv size={32}/>
             </a>
             <a href="https://www.instagram.com/wildyartsy/" target="_blank" className={`${sideIcons}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+              <IconBrandInstagram size={32}/>
             </a>
             <a href="https://www.linkedin.com/in/christinabaudais/" target="_blank" className={`${sideIcons}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 11l0 5" /><path d="M8 8l0 .01" /><path d="M12 16l0 -5" /><path d="M16 16v-3a2 2 0 0 0 -4 0" /></svg>
+              <IconBrandLinkedin size={32}/>
             </a>
           </div>
           <div className='mt-auto hidden lg:block'>
