@@ -4,6 +4,7 @@ import PostList from "@/components/PostList";
 import { ErrorBoundary } from "react-error-boundary";
 import { fetchAPI } from "@/utils/fetch-api";
 import { strapiCategories } from "@/types/types";
+import { notFound } from "next/navigation";
 
 //fetch posts, filtered by categories
 async function fetchByCategory(filter: string) {
@@ -49,6 +50,7 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
         }
         if (exitLoop) { break; }
     }
+    if (data.length === 0) { return notFound() }
 
     return (
         <Section>
@@ -62,6 +64,14 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
     );
 }
 
-export async function generateStaticParams() {
-    return [];
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams({ params }: { params: Promise<{ category: string }> }) {
+    const filter = (await params).category;
+    const { data } = await fetchByCategory(filter);
+    if (data.length === 0) { return notFound() };
+    console.log(data);
+
+    return data.map((category: strapiCategories) => ({
+        slug: category.slug,
+    }))
 }

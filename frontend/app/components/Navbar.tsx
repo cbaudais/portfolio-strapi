@@ -65,8 +65,6 @@ const Navbar = ({
               <ErrorBoundary FallbackComponent={FallbackNav}>
                 {categories.data.map((category: strapiCategories) => {
                   return (
-                    console.log(category.slug),
-                    console.log(query),
                     <li key={category.id} className="nav-link">
                       <Link href={`${encodeURIComponent(category.slug)}`} className={`${query === category.slug && 'active'}`}>
                         {category.name}
