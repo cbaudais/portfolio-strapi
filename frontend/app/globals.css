@@ -25,6 +25,7 @@ body,
     font-family: "Open Sans", sans-serif;
     @apply text-zinc-950;
 }
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

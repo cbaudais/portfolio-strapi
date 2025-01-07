@@ -4,11 +4,11 @@ import { IconBrandInstagram, IconBrandLinkedin, IconFileCv, IconMenu2, IconX } f
 import Footer from "./Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { strapiCategories } from "@/types/types";
+// import { strapiCategories } from "@/types/types";
 import Loader from "./Loader";
 import { fetchAPI } from "@/utils/fetch-api";
-import { ErrorBoundary } from "react-error-boundary";
-import { FallbackNav } from "./ErrorFallback";
+// import { ErrorBoundary } from "react-error-boundary";
+// import { FallbackNav } from "./ErrorFallback";
 
 useState;
 useEffect;
@@ -62,7 +62,7 @@ const Navbar = ({
               <li className="nav-link">
                 <Link href="/" className={`${pathname === '/' && 'active'}`}>Home</Link>
               </li>
-              <ErrorBoundary FallbackComponent={FallbackNav}>
+              {/* <ErrorBoundary FallbackComponent={FallbackNav}>
                 {categories.data.map((category: strapiCategories) => {
                   return (
                     <li key={category.id} className="nav-link">
@@ -72,7 +72,16 @@ const Navbar = ({
                     </li>
                   )
                 })}
-              </ErrorBoundary>
+              </ErrorBoundary> */}
+              <li className="nav-link">
+                <Link href="/2d-work" className={`${pathname === '/2d-work' ? 'active' : ''}`}>2D Work</Link>
+              </li>
+              <li className="nav-link">
+                <Link href="/3d-work" className={`${pathname === '/3d-work' ? 'active' : ''}`}>3D Work</Link>
+              </li>
+              <li className="nav-link">
+                <Link href="/games" className={`${pathname === '/games' ? 'active' : ''}`}>Games</Link>
+              </li>
               <li className="nav-link">
                 <Link href="/about" className={`${pathname === '/about' && 'active'}`}>About</Link>
               </li>

@@ -19,20 +19,20 @@ export default function RootLayout({
   const options = { headers: { Authorization: `Bearer ${token}` } };
   const query = '/categories';
   const urlParamsObject = {
-      sort: {name: "asc"}
+    sort: { name: "asc" }
   }
   return (
     <html lang="en">
       <body>
         <ErrorBoundary FallbackComponent={FallbackFetch}>
-          <Navbar query={query} urlParamsObject={urlParamsObject} options={options}/>
+          <Navbar query={query} urlParamsObject={urlParamsObject} options={options} />
         </ErrorBoundary>
         <main className="app lg:ml-[290px] min-h-full">
           {children}
         </main>
         <div id='footer' className='lg:hidden'>
           <Footer />
-      </div>
+        </div>
       </body>
     </html>
   );
