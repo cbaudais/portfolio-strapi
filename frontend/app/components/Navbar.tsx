@@ -14,13 +14,13 @@ useState;
 useEffect;
 
 const Navbar = ({
-  query: query,
-  urlParamsObject: urlParamsObject,
-  options: options
-}: {
-  query: string;
-  urlParamsObject?: {};
-  options?: {};
+  //   query: query,
+  //   urlParamsObject: urlParamsObject,
+  //   options: options
+  // }: {
+  //   query: string;
+  //   urlParamsObject?: {};
+  //   options?: {};
 }) => {
   const sideIcons = "p-2 hover:text-berry-60 transition-all duration-300 ease-in-out";
   const [sidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
@@ -30,24 +30,23 @@ const Navbar = ({
     setIsSidebarOpen(false); // Close the navigation panel
   }, [pathname]);
 
-  const [categories, setData] = useState<any>([]);
-  const [isLoading, setLoading] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const responseData = await fetchAPI(query, urlParamsObject, options);
-        setData(responseData);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [query, urlParamsObject, options]);
-  if (isLoading) return <Loader />
-  if (categories.data == 0) return <p>Nothing here yet...</p>
+  // const [categories, setData] = useState<any>([]);
+  // const [isLoading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const responseData = await fetchAPI(query, urlParamsObject, options);
+  //       setData(responseData);
+  //     } catch (error) {
+  //       console.error(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [query, urlParamsObject, options]);
+  // if (isLoading) return <Loader />
 
   return (
     <header>
