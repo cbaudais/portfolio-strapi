@@ -28,25 +28,25 @@ const Navbar = ({
 
   useEffect(() => {
     setIsSidebarOpen(false); // Close the navigation panel
-  }, [pathname]); 
+  }, [pathname]);
 
   const [categories, setData] = useState<any>([]);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
-      const fetchData = async () => {
-          setLoading(true); 
-          try {
-              const responseData = await fetchAPI(query, urlParamsObject, options);
-              setData(responseData);      
-          } catch (error) {
-              console.error(error);
-          } finally {
-              setLoading(false);
-          }
-      };
-      fetchData();
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const responseData = await fetchAPI(query, urlParamsObject, options);
+        setData(responseData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, [query, urlParamsObject, options]);
-  if (isLoading) return <Loader/>
+  if (isLoading) return <Loader />
   if (categories.data == 0) return <p>Nothing here yet...</p>
 
   return (
@@ -58,39 +58,41 @@ const Navbar = ({
             <h1 className="font-bold font-heading text-nowrap m-0 mt-[1px]">Christina Baudais</h1>
           </Link>
           <nav id="menu">
-          <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">
+            <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">
               <li className="nav-link">
-                <Link href="/" className={`${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                <Link href="/" className={`${pathname === '/' && 'active'}`}>Home</Link>
               </li>
               <ErrorBoundary FallbackComponent={FallbackNav}>
-              {categories.data.map((category: strapiCategories) => {
-                return (
-                <li key={category.id} className="nav-link">
-                    <Link href={category.slug} className={`${pathname === category.slug ? 'active' : ''}`}>
+                {categories.data.map((category: strapiCategories) => {
+                  return (
+                    console.log(category.slug),
+                    console.log(query),
+                    <li key={category.id} className="nav-link">
+                      <Link href={`${encodeURIComponent(category.slug)}`} className={`${query === category.slug && 'active'}`}>
                         {category.name}
-                    </Link>
-                </li>
-                )
-              })}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ErrorBoundary>
               <li className="nav-link">
-                <Link href="/about" className={`${pathname === '/about' ? 'active' : ''}`}>About</Link>
+                <Link href="/about" className={`${pathname === '/about' && 'active'}`}>About</Link>
               </li>
               <li className="nav-link">
-                <Link href="/blog" className={`${pathname === '/blog' ? 'active' : ''}`}>Blog</Link>
+                <Link href="/blog" className={`${pathname === '/blog' && 'active'}`}>Blog</Link>
               </li>
             </ul>
           </nav>
           <p className="m-4">cbwbaudais@outlook.com</p>
           <div className="flex items-center mt-2 mb-8">
             <a href="/assets/BaudaisChristinaResume.pdf" target="_blank" className={`${sideIcons}`}>
-              <IconFileCv size={32}/>
+              <IconFileCv size={32} />
             </a>
             <a href="https://www.instagram.com/wildyartsy/" target="_blank" className={`${sideIcons}`}>
-              <IconBrandInstagram size={32}/>
+              <IconBrandInstagram size={32} />
             </a>
             <a href="https://www.linkedin.com/in/christinabaudais/" target="_blank" className={`${sideIcons}`}>
-              <IconBrandLinkedin size={32}/>
+              <IconBrandLinkedin size={32} />
             </a>
           </div>
           <div className='mt-auto hidden lg:block'>
