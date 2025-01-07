@@ -15,18 +15,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-  const options = { headers: { Authorization: `Bearer ${token}` } };
-  const query = '/categories';
-  const urlParamsObject = {
-    sort: { name: "asc" }
-  }
+  // const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+  // const options = { headers: { Authorization: `Bearer ${token}` } };
+  // const query = '/categories';
+  // const urlParamsObject = {
+  //   sort: { name: "asc" }
+  // }
   return (
     <html lang="en">
       <body>
-        <ErrorBoundary FallbackComponent={FallbackFetch}>
+        {/* <ErrorBoundary FallbackComponent={FallbackFetch}>
           <Navbar query={query} urlParamsObject={urlParamsObject} options={options} />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
+        <Navbar />
         <main className="app lg:ml-[290px] min-h-full">
           {children}
         </main>
