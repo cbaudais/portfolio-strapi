@@ -66,7 +66,7 @@ const Navbar = ({
                 {categories.data.map((category: strapiCategories) => {
                   return (
                     <li key={category.id} className="nav-link">
-                      <Link href={`${encodeURIComponent(category.slug)}`} className={`${query === category.slug && 'active'}`}>
+                      <Link href={`/${encodeURIComponent(category.slug)}`} className={`${pathname === category.slug && 'active'}`}>
                         {category.name}
                       </Link>
                     </li>
