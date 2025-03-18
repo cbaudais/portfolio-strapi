@@ -4,7 +4,7 @@ import { Section } from "./components/Section";
 export default function Home() {
   return (
     <>
-      <Hero/>
+      <Hero />
       <Section>
         <p>adkjfha idufah</p>
       </Section>

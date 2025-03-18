@@ -1,14 +1,10 @@
 'use client'
-import { fetchAPI, getStrapiMedia } from "@/utils/fetch-api";
-// import useFetch from "../utils/useFetch";
-import { useState, useEffect } from "react";
+import { getStrapiMedia } from "@/utils/fetch-api";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-import type { strapiCategories, strapiProjects } from "@/types/types";
+import type { strapiProjects } from "@/types/types";
 import ReactMarkdown from "react-markdown";
 import { IconCaretRightFilled } from "@tabler/icons-react";
 import Link from "next/link";
-import Loader from "./Loader";
-// import Image from "next/image";
 
 const PostList = ({
     // query: query,
@@ -50,7 +46,6 @@ const PostList = ({
                     const category = project.categories[0].slug
 
                     return (
-                        // <div>
                         <div key={project.documentId} className="bg-white rounded-xl overflow-hidden drop-shadow-md flex flex-col">
                             <Link href={`/${category}/${project.slug}`} >
                                 <img className="h-52 max-h-52 w-full object-cover" src={`${imageUrl}`} />
@@ -90,7 +85,6 @@ const PostList = ({
                                 </Link>
                             </div>
                         </div>
-                        // </div>
                     );
                 })}
             </div>

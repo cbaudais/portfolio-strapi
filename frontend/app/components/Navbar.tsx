@@ -50,42 +50,42 @@ const Navbar = ({
 
   return (
     <header>
-      <div className={`sidebar ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-290px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
+      <div className={`fixed top-0 left-0 z-40 h-screen w-[290px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-290px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
         <div className="flex flex-col h-full overflow-y-auto scroll">
           <Link href="/" className="flex items-center flex-wrap px-2 py-4 gap-3">
             <img alt="logo" src="/favicon.ico" className="max-h-9 rounded-full border-solid border-[1px] border-berry-80" />
-            <h1 className="font-bold font-heading text-nowrap m-0 mt-[1px]">Christina Baudais</h1>
+            <h1 className="font-bold font-heading text-2xl text-nowrap m-0 mt-[1px]">Christina Baudais</h1>
           </Link>
           <nav id="menu">
             <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">
-              <li className="nav-link">
-                <Link href="/" className={`${pathname === '/' && 'active'}`}>Home</Link>
+              <li className={`${pathname === '/' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/">Home</Link>
               </li>
               {/* <ErrorBoundary FallbackComponent={FallbackNav}>
                 {categories.data.map((category: strapiCategories) => {
                   return (
-                    <li key={category.id} className="nav-link">
-                      <Link href={`/${encodeURIComponent(category.slug)}`} className={`${pathname === category.slug && 'active'}`}>
+                    <li key={category.id} className={`${pathname === '/2d-work' ? 'nav-link active' : 'nav-link'}`}>
+                      <Link href={`/${encodeURIComponent(category.slug)}`} className={`${pathname === category.slug ? 'active' : ''}`}>
                         {category.name}
                       </Link>
                     </li>
                   )
                 })}
               </ErrorBoundary> */}
-              <li className="nav-link">
-                <Link href="/2d-work" className={`${pathname === '/2d-work' ? 'active' : ''}`}>2D Work</Link>
+              <li className={`${pathname === '/2d-work' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/2d-work">2D Work</Link>
               </li>
-              <li className="nav-link">
-                <Link href="/3d-work" className={`${pathname === '/3d-work' ? 'active' : ''}`}>3D Work</Link>
+              <li className={`${pathname === '/3d-work' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/3d-work">3D Work</Link>
               </li>
-              <li className="nav-link">
-                <Link href="/games" className={`${pathname === '/games' ? 'active' : ''}`}>Games</Link>
+              <li className={`${pathname === '/games' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/games">Games</Link>
               </li>
-              <li className="nav-link">
-                <Link href="/about" className={`${pathname === '/about' && 'active'}`}>About</Link>
+              <li className={`${pathname === '/about' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/about">About</Link>
               </li>
-              <li className="nav-link">
-                <Link href="/blog" className={`${pathname === '/blog' && 'active'}`}>Blog</Link>
+              <li className={`${pathname === '/blog' ? 'nav-link active' : 'nav-link'}`}>
+                <Link href="/blog">Blog</Link>
               </li>
             </ul>
           </nav>

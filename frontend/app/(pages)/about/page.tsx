@@ -3,11 +3,11 @@ import React from 'react'
 
 type Props = {}
 
-export default function About (props: Props) {
+export default function About(props: Props) {
   return (
     <Section>
       <>
-      <h1>About Me</h1>
+        <h1>About Me</h1>
       </>
     </Section>
   )

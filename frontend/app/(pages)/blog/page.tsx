@@ -15,9 +15,9 @@ export default function Blog() {
     //   },
     // },
     populate: {
-    //   categories: {
-    //     fields: ["id", "name", "slug"]
-    //   },
+      //   categories: {
+      //     fields: ["id", "name", "slug"]
+      //   },
       // thumbnail: { populate: "*" },
       thumbnail: {
         fields: ["url"]

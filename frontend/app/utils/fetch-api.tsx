@@ -33,26 +33,26 @@ export async function fetchAPI(
     options = {} // (3) object containing additional options for the API call
 ) {
     try {
-    // Merge default and "user" options
-    const mergedOptions = {
-        next: { revalidate: 60 }, // purge data cache & re-fetch data /interval
-        headers: {
-        "Content-Type": "application/json",
-        },
-        ...options, // (3)
-    };
+        // Merge default and "user" options
+        const mergedOptions = {
+            next: { revalidate: 60 }, // purge data cache & re-fetch data /interval
+            headers: {
+                "Content-Type": "application/json",
+            },
+            ...options, // (3)
+        };
 
-    // Build request URL
-    const queryString = qs.stringify(urlParamsObject); // (2)
-    const requestUrl = `${getStrapiURL(
-        `/api${query}${queryString ? `?${queryString}` : ""}`
-    )}`; // get Strapi URL, pass in path (1) & query from urlParams obj (2)
+        // Build request URL
+        const queryString = qs.stringify(urlParamsObject); // (2)
+        const requestUrl = `${getStrapiURL(
+            `/api${query}${queryString ? `?${queryString}` : ""}`
+        )}`; // get Strapi URL, pass in path (1) & query from urlParams obj (2)
 
-    // Trigger API call
-    const response = await fetch(requestUrl, mergedOptions);
-    const data = await response.json();
-    
-    return data;
+        // Trigger API call
+        const response = await fetch(requestUrl, mergedOptions);
+        const data = await response.json();
+
+        return data;
 
     } catch (error) {
         console.error(error);
