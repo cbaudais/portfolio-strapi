@@ -1,8 +1,8 @@
 // import placeholder from "@/assets/placeholder1024.png"
 'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import Link from "next/link";
+// import { usePathname } from "next/navigation";
 
 export function FallbackFetch({ error }: any) {
     // Call resetErrorBoundary() to reset the error boundary and retry the render.

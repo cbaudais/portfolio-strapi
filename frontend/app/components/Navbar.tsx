@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 // import { strapiCategories } from "@/types/types";
-import Loader from "./Loader";
 import { fetchAPI } from "@/utils/fetch-api";
 // import { ErrorBoundary } from "react-error-boundary";
 // import { FallbackNav } from "./ErrorFallback";
@@ -50,11 +49,11 @@ const Navbar = ({
 
   return (
     <header>
-      <div className={`fixed top-0 left-0 z-40 h-screen w-[290px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-290px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
+      <div className={`fixed top-0 left-0 z-[60] h-screen w-[300px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-300px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
         <div className="flex flex-col h-full overflow-y-auto scroll">
           <Link href="/" className="flex items-center flex-wrap px-2 py-4 gap-3">
             <img alt="logo" src="/favicon.ico" className="max-h-9 rounded-full border-solid border-[1px] border-berry-80" />
-            <h1 className="font-bold font-heading text-2xl text-nowrap m-0 mt-[1px]">Christina Baudais</h1>
+            <span className="font-bold font-heading text-zinc-950 text-2xl text-nowrap m-0 mt-[1px]">Christina Baudais</span>
           </Link>
           <nav id="menu">
             <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">

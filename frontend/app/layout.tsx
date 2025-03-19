@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css"
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { Suspense } from "react";
+import Loader from "./components/Loader";
 
 export const metadata: Metadata = {
   title: "Christina Baudais | Portfolio",
-  description: "Christina Baudais's Multimedia Portfolio",
+  description: "Christina Baudais's Portfolio",
 };
 
 export default async function RootLayout({
@@ -17,8 +19,10 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="app lg:ml-[290px] min-h-full">
-          {children}
+        <main className="app relative lg:ml-[300px] min-h-full">
+          <Suspense fallback={<Loader />}>
+            {children}
+          </Suspense>
         </main>
         <div id='footer' className='lg:hidden'>
           <Footer />

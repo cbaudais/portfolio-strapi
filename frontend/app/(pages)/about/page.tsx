@@ -1,7 +1,13 @@
 import { Section } from '@/components/Section'
+import { Metadata } from 'next';
 import React from 'react'
 
 type Props = {}
+
+export const metadata: Metadata = {
+  title: "About Me | Portfolio",
+  description: "About Christina Baudais",
+};
 
 export default function About(props: Props) {
   return (

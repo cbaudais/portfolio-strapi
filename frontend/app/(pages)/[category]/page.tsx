@@ -1,4 +1,3 @@
-
 import { FallbackFetch } from "@/components/ErrorFallback";
 import { Section } from "@/components/Section";
 import PostList from "@/components/PostList";
@@ -7,6 +6,9 @@ import { fetchAPI } from "@/utils/fetch-api";
 import { strapiCategories } from "@/types/types";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
+import { Suspense } from "react";
+import Loading from "@/components/Loader";
 
 //fetch posts, filtered by categories
 async function fetchByCategory(filter: string) {
@@ -51,10 +53,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
         }
         if (exitLoop) { break; }
     }
-    // if (data.length === 0) { return notFound() }
+    if (data.length === 0) { return notFound() }
     return {
         title: catName + " | Christina Baudais",
-        description: "Christina Baudais's " + catName
+        description: "Christina Baudais's " + catName,
     }
 }
 
@@ -78,9 +80,11 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
     return (
         <Section>
             <>
-                <h1>{catName}</h1>
                 <ErrorBoundary FallbackComponent={FallbackFetch}>
-                    <PostList data={data} />
+                    <Suspense key={filter} fallback={<Loading />}>
+                        <PageHeader heading={catName} />
+                        <PostList data={data} />
+                    </Suspense>
                 </ErrorBoundary>
             </>
         </Section>
@@ -88,12 +92,12 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
 }
 
 // Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams({ params }: { params: Promise<{ category: string }> }) {
-//     const filter = (await params).category;
-//     const { data } = await fetchByCategory(filter);
-//     if (data.length === 0) { return notFound() };
+export async function generateStaticParams({ params }: { params: Promise<{ category: string }> }) {
+    const filter = (await params).category;
+    const { data } = await fetchByCategory(filter);
+    if (data.lenght === 0) { return notFound() };
 
-//     return data.map((category: strapiCategories) => ({
-//         slug: category.slug,
-//     }))
-// }
+    return data.map((category: strapiCategories) => ({
+        slug: category.slug,
+    }))
+}
