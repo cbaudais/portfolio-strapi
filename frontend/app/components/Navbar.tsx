@@ -21,6 +21,7 @@ const Navbar = ({
   //   urlParamsObject?: {};
   //   options?: {};
 }) => {
+  const navLink = "relative lg:block w-fit p-4 after:block after:content-[''] after:absolute after:h-[3px] after:bg-berry-20 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center";
   const sideIcons = "p-2 hover:text-berry-60 transition-all duration-300 ease-in-out";
   const [sidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const pathname = usePathname();
@@ -57,13 +58,13 @@ const Navbar = ({
           </Link>
           <nav id="menu">
             <ul className="flex flex-col gap-8 lg:gap-5 m-4 ml-0 text-xl font-heading">
-              <li className={`${pathname === '/' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/">Home</Link>
               </li>
               {/* <ErrorBoundary FallbackComponent={FallbackNav}>
                 {categories.data.map((category: strapiCategories) => {
                   return (
-                    <li key={category.id} className={`${pathname === '/2d-work' ? 'nav-link active' : 'nav-link'}`}>
+                    <li key={category.id} className={`${pathname === '/2d-work' ? `${navLink} active` : `${navLink}`}`}>
                       <Link href={`/${encodeURIComponent(category.slug)}`} className={`${pathname === category.slug ? 'active' : ''}`}>
                         {category.name}
                       </Link>
@@ -71,19 +72,19 @@ const Navbar = ({
                   )
                 })}
               </ErrorBoundary> */}
-              <li className={`${pathname === '/2d-work' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/2d-work' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/2d-work">2D Work</Link>
               </li>
-              <li className={`${pathname === '/3d-work' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/3d-work' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/3d-work">3D Work</Link>
               </li>
-              <li className={`${pathname === '/games' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/games' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/games">Games</Link>
               </li>
-              <li className={`${pathname === '/about' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/about' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/about">About</Link>
               </li>
-              <li className={`${pathname === '/blog' ? 'nav-link active' : 'nav-link'}`}>
+              <li className={`${pathname === '/blog' ? `${navLink} active` : `${navLink}`}`}>
                 <Link href="/blog">Blog</Link>
               </li>
             </ul>

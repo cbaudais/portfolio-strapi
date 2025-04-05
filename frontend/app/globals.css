@@ -56,15 +56,8 @@ body,
   }
 }
 
+.active,
 p a {
-  @apply text-berry-60;
-}
-
-.nav-link {
-  @apply relative lg:block w-fit p-4 after:block after:content-[''] after:absolute after:h-[3px] after:bg-berry-20 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center;
-}
-
-.active {
   /* from browser router react */
   @apply text-berry-20;
 }

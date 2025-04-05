@@ -34,6 +34,13 @@ const PostList = ({
     //     fetchData();
     // }, [query, urlParamsObject, options]);
     // if (isLoading) return <Loader />
+    function LinkRenderer(props: any) {
+        return (
+            <a href={props.href} target="_blank" rel="noreferrer">
+                {props.children}
+            </a>
+        );
+    }
     if (data.length === 0) return <p>Nothing here yet...</p>
 
     return (
@@ -73,8 +80,8 @@ const PostList = ({
                                     ))}
                                 </div>
                                 {(project.descPreview) // if true or !null, else false or null
-                                    ? <ReactMarkdown className="markdown text-grey">{project.descPreview}</ReactMarkdown>
-                                    : <div className="text-grey my-4">
+                                    ? <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{project.descPreview}</ReactMarkdown>
+                                    : <div className="text-grey my-4 richText">
                                         <BlocksRenderer content={project.description.slice(0, 1)} />
                                     </div>}
                             </div>
