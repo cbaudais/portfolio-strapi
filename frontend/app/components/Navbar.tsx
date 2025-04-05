@@ -89,7 +89,7 @@ const Navbar = ({
               </li>
             </ul>
           </nav>
-          <p className="m-4">cbwbaudais@outlook.com</p>
+          <a className="m-4" href="mailto:cbwbaudais@outlook.com">cbwbaudais@outlook.com</a>
           <div className="flex items-center mt-2 mb-8">
             <a href="/assets/BaudaisChristinaResume.pdf" target="_blank" className={`${sideIcons}`}>
               <IconFileCv size={32} />

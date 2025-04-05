@@ -57,9 +57,13 @@ body,
 }
 
 .active,
-p a {
+.markdown a {
   /* from browser router react */
-  @apply text-berry-20;
+  @apply text-berry-20 hover:text-berry-60;
+}
+
+.markdown>* {
+  all: revert;
 }
 
 /* width */
@@ -96,8 +100,4 @@ img {
 
 .btn-berry {
   @apply text-white hover:bg-berry-20 transition-all duration-200 bg-berry-60;
-}
-
-.markdown>* {
-  all: revert;
 }
