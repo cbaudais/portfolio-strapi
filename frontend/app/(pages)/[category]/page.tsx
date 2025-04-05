@@ -16,6 +16,7 @@ async function fetchByCategory(filter: string) {
         const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
         const query = '/projects';
         const urlParamsObject = {
+            sort: "createdAt:DESC",
             filters: {
                 categories: {
                     slug: filter

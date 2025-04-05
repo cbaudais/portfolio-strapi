@@ -5,6 +5,7 @@ import type { strapiProjects } from "@/types/types";
 import ReactMarkdown from "react-markdown";
 import { IconCaretRightFilled } from "@tabler/icons-react";
 import Link from "next/link";
+import Image from "next/image"
 
 const PostList = ({
     // query: query,
@@ -55,20 +56,18 @@ const PostList = ({
                     return (
                         <div key={project.documentId} className="bg-white rounded-xl overflow-hidden drop-shadow-md flex flex-col">
                             <Link href={`/${category}/${project.slug}`} >
-                                <img className="h-52 max-h-52 w-full object-cover" src={`${imageUrl}`} />
-                                {/* {imageUrl && (
+                                {/* <img className="w-full h-52 max-h-52 object-cover" src={`${imageUrl}`} /> */}
+                                {imageUrl && (
                                     <div className="w-full h-52 max-h-52">
                                         <Image
-                                        alt="thumbnail"
-                                        fill
-                                        objectFit="cover"
-                                        // width={100}
-                                        // height={100}
-                                        className="object-cover w-full h-52 max-h-52"
-                                        src={imageUrl}
+                                            alt="thumbnail"
+                                            fill
+                                            objectFit="cover"
+                                            className="object-cover w-full h-52 max-h-52"
+                                            src={imageUrl}
                                         />
                                     </div>
-                                )} */}
+                                )}
                             </Link>
                             <div className="px-6 pt-4">
                                 <Link href={`/${category}/${project.slug}`} >
@@ -79,8 +78,8 @@ const PostList = ({
                                         <p className="tag select-none" key={category.id}>{category.name}</p>
                                     ))}
                                 </div>
-                                {(project.descPreview) // if true or !null, else false or null
-                                    ? <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{project.descPreview}</ReactMarkdown>
+                                {(project.excerpt) // if true or !null, else false or null
+                                    ? <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{project.excerpt}</ReactMarkdown>
                                     : <div className="text-grey my-4 richText">
                                         <BlocksRenderer content={project.description.slice(0, 1)} />
                                     </div>}

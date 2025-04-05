@@ -39,7 +39,7 @@
         "files"
       ]
     },
-    "descPreview": {
+    "excerpt": {
       "type": "richtext"
     },
     "description": {

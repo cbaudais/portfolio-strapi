@@ -8,7 +8,7 @@ export type strapiProjects = {
     publishedAt: string;
     slug: string;
     featured: boolean;
-    descPreview: string;
+    excerpt: string;
     description: BlocksContent;
     date: string;
     categories: [
