@@ -50,7 +50,7 @@ const Navbar = ({
 
   return (
     <header>
-      <div className={`fixed top-0 left-0 z-[60] h-screen w-[300px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-300px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
+      <div className={`fixed top-0 left-0 z-[60] h-screen w-[250px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-250px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
         <div className="flex flex-col h-full overflow-y-auto scroll">
           <Link href="/" className="flex items-center flex-wrap px-2 py-4 gap-3">
             <img alt="logo" src="/favicon.ico" className="max-h-9 rounded-full border-solid border-[1px] border-berry-80" />

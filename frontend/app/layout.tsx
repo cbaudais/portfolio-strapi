@@ -19,7 +19,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main className="app relative lg:ml-[300px] min-h-full">
+        <main className="app relative lg:ml-[250px] min-h-full">
           <Suspense fallback={<Loader />}>
             {children}
           </Suspense>

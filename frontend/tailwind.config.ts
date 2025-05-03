@@ -26,6 +26,9 @@ export default {
         consolas: ["Consolas", "monospace"],
         heading: ["Share Tech", "sans-serif"],
       },
+      backgroundImage: {
+        'radial-gradient': 'radial-gradient(circle, var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],
