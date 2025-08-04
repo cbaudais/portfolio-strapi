@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { IconBrandInstagram, IconBrandLinkedin, IconFileCv, IconMenu2, IconX } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconFileCv, IconMenu2, IconX } from "@tabler/icons-react";
 import Footer from "./Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,8 +21,8 @@ const Navbar = ({
   //   urlParamsObject?: {};
   //   options?: {};
 }) => {
-  const navLink = "relative lg:block w-fit p-4 after:block after:content-[''] after:absolute after:h-[3px] after:bg-berry-20 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center";
-  const sideIcons = "p-2 hover:text-berry-60 transition-all duration-300 ease-in-out";
+  const navLink = "relative lg:block w-fit p-4 after:block after:content-[''] after:absolute after:h-[3px] after:bg-indigo-700 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center";
+  const sideIcons = "p-2 hover:text-indigo-700 transition-all duration-300 ease-in-out";
   const [sidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
@@ -53,7 +53,7 @@ const Navbar = ({
       <div className={`fixed top-0 left-0 z-[60] h-screen w-[250px] shadow-zinc-800 border-solid border-r-[1px] transition-all duration-300; ${sidebarOpen ? ("translate-x-0 shadow-2xl lg:shadow-none") : ("translate-x-[-250px] lg:translate-x-0")} p-4 bg-white text-zinc-950`}>
         <div className="flex flex-col h-full overflow-y-auto scroll">
           <Link href="/" className="flex items-center flex-wrap px-2 py-4 gap-3">
-            <img alt="logo" src="/favicon.ico" className="max-h-9 rounded-full border-solid border-[1px] border-berry-80" />
+            <img alt="logo" src="/favicon.ico" className="max-h-9 rounded-full border-solid border-[1px] border-indigo-800" />
             <span className="font-bold font-heading text-zinc-950 text-2xl text-nowrap m-0 mt-[1px]">Christina Baudais</span>
           </Link>
           <nav id="menu">
@@ -89,17 +89,21 @@ const Navbar = ({
               </li>
             </ul>
           </nav>
-          <a className="m-4" href="mailto:cbwbaudais@outlook.com">cbwbaudais@outlook.com</a>
+          <a className="m-3" href="mailto:cbwbaudais@outlook.com">cbwbaudais@outlook.com</a>
           <div className="flex items-center mt-2 mb-8">
-            <a href="/assets/BaudaisChristinaResume.pdf" target="_blank" className={`${sideIcons}`}>
+            {/* <a href="/assets/BaudaisChristinaResume.pdf" target="_blank" className={`${sideIcons}`}>
               <IconFileCv size={32} />
+            </a> */}
+            <a href="https://www.linkedin.com/in/christinabaudais/" target="_blank" className={`${sideIcons}`}>
+              <IconBrandLinkedin size={32} />
+            </a>
+            <a href="https://github.com/cbaudais/" target="_blank" className={`${sideIcons}`}>
+              <IconBrandGithub size={32} />
             </a>
             <a href="https://www.instagram.com/wildyartsy/" target="_blank" className={`${sideIcons}`}>
               <IconBrandInstagram size={32} />
             </a>
-            <a href="https://www.linkedin.com/in/christinabaudais/" target="_blank" className={`${sideIcons}`}>
-              <IconBrandLinkedin size={32} />
-            </a>
+
           </div>
           <div className='mt-auto hidden lg:block'>
             <Footer />
@@ -107,7 +111,7 @@ const Navbar = ({
         </div>
       </div>
       <button
-        className={`rounded-full p-2 absolute top-7 right-7 lg:hidden z-50 transition-all duration-300 text-white shadow-lg shadow-zinc-500 ${sidebarOpen ? ("bg-berry-20") : ("bg-berry-60")}`}
+        className={`rounded-full p-2 absolute top-7 right-7 lg:hidden z-50 transition-all duration-300 text-white shadow-lg shadow-zinc-500 ${sidebarOpen ? ("bg-indigo-800") : ("bg-indigo-900")}`}
         onClick={() => setIsSidebarOpen(!sidebarOpen)}
       >
         {sidebarOpen ? (

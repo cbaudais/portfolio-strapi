@@ -9,7 +9,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        "berry-10": "#fd0d60",
         "berry-20": "#CF0B4F",
         "berry-60": "#B50A45",
         "grey": "#4C454E",

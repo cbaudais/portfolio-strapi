@@ -25,6 +25,7 @@ body,
   font-family: "Open Sans", system-ui;
   font-size: 14px;
   @apply text-zinc-900;
+  /* @apply bg-slate-900; */
 }
 
 /* :root {
@@ -60,10 +61,10 @@ body,
 .active,
 .markdown a {
   /* from browser router react */
-  @apply text-berry-20 hover:text-berry-60;
+  @apply text-indigo-800 hover:text-indigo-800;
 }
 
-.markdown > * {
+.markdown>* {
   all: revert;
 }
 
@@ -96,7 +97,7 @@ img {
 }
 
 .btn-dark {
-  @apply text-white hover:bg-grey transition-all duration-200 bg-dark;
+  @apply text-white hover:bg-indigo-800 transition-all duration-200 bg-indigo-950;
 }
 
 .btn-berry {
