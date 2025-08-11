@@ -43,12 +43,11 @@ async function getMetaData(slug: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const meta = await getMetaData((await params).slug);
-    console.log(meta.title);
-
+    const metadata = meta[0];
 
     return {
-        title: meta.title + " | Christina Baudais",
-        description: "Christina Baudais's " + meta.title + "project.",
+        title: metadata.title + " | Christina Baudais",
+        description: "Christina Baudais's " + metadata.title + "project.",
     };
 }
 
