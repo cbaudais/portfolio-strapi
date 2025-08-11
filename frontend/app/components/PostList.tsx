@@ -78,11 +78,12 @@ const PostList = ({
                                         <p className="tag select-none" key={category.id}>{category.name}</p>
                                     ))}
                                 </div>
-                                {(project.excerpt) // if true or !null, else false or null
+                                <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{project.excerpt}</ReactMarkdown>
+                                {/* {(project.excerpt) // if true or !null, else false or null
                                     ? <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{project.excerpt}</ReactMarkdown>
                                     : <div className="text-grey my-4 richText">
                                         <BlocksRenderer content={project.description.slice(0, 1)} />
-                                    </div>}
+                                    </div>} */}
                             </div>
                             <div className="mt-auto px-6">
                                 <Link href={`/${category}/${project.slug}`} className="py-2 mt-2 mb-4 space-x-1 flex w-fit hover:text-indigo-500">

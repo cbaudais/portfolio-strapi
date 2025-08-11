@@ -9,7 +9,7 @@ export type strapiProjects = {
     slug: string;
     featured: boolean;
     excerpt: string;
-    description: BlocksContent;
+    description: string;
     date: string;
     categories: [
         {
