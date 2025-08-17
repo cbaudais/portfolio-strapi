@@ -8,9 +8,6 @@
 
 // Access both local and remote media sources but still use the built-in Next.js Image Optimization API.
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -18,10 +15,6 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
         pathname: '/uploads/**',
-      // },
-      // {
-      //   protocol: 'https',
-      //   hostname: 'images.pexels.com',
       }
     ],
   },

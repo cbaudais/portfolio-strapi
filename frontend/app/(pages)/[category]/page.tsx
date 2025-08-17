@@ -96,7 +96,7 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
 export async function generateStaticParams({ params }: { params: Promise<{ category: string }> }) {
     const filter = (await params).category;
     const { data } = await fetchByCategory(filter);
-    if (data.lenght === 0) { return notFound() };
+    if (data.length === 0) { return notFound() };
 
     return data.map((category: strapiCategories) => ({
         slug: category.slug,
