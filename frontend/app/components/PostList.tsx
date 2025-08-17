@@ -56,17 +56,18 @@ const PostList = ({
                     return (
                         <div key={project.documentId} className="bg-white rounded-xl overflow-hidden drop-shadow-md flex flex-col">
                             <Link href={`/${category}/${project.slug}`} >
-                                {/* <img className="w-full h-52 max-h-52 object-cover" src={`${imageUrl}`} /> */}
                                 {imageUrl && (
-                                    <div className="w-full h-52 max-h-52">
-                                        <Image
-                                            alt="thumbnail"
-                                            fill
-                                            objectFit="cover"
-                                            className="object-cover w-full h-52 max-h-52"
-                                            src={imageUrl}
-                                        />
-                                    </div>
+                                    // <div className="w-full h-52 max-h-52">
+                                    <Image
+                                        alt="thumbnail"
+                                        // fill
+                                        className="object-cover w-full"
+                                        width={0}
+                                        height={0}
+                                        sizes="50vw"
+                                        src={imageUrl}
+                                    />
+                                    // </div>
                                 )}
                             </Link>
                             <div className="px-6 pt-4">

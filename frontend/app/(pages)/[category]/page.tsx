@@ -13,7 +13,6 @@ import Loading from "@/components/Loader";
 //fetch posts, filtered by categories
 async function fetchByCategory(filter: string) {
     try {
-        const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
         const query = '/projects';
         const urlParamsObject = {
             sort: "createdAt:DESC",
@@ -31,8 +30,10 @@ async function fetchByCategory(filter: string) {
                 }
             },
         };
-        const options = { headers: { Authorization: `Bearer ${token}` } };
-        const responseData = await fetchAPI(query, urlParamsObject, options);
+        const responseData = await fetchAPI(
+            query,
+            urlParamsObject,
+        );
         return responseData;
     } catch (error) {
         console.log(error);

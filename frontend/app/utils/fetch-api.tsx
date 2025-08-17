@@ -1,9 +1,10 @@
 import qs from "qs"; // query string parsing & formatting functionality
-// import { getStrapiURL } from "./api-helpers";
+
+export const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 // Get beginning of URL for anything in Strapi, can add specific path
 export function getStrapiURL(path = '') {
-    return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${path}`;
+    return `${process.env.STRAPI_URL ?? 'http://localhost:1337'}${path}`;
 }
 
 export function getStrapiMedia(url: string | null) {
@@ -29,8 +30,7 @@ export function getStrapiMedia(url: string | null) {
 
 export async function fetchAPI(
     query: string, // (1) API endpoint path
-    urlParamsObject = {}, // (2) object containing URL parameters
-    options = {} // (3) object containing additional options for the API call
+    urlParamsObject = {} // (2) object containing URL parameters
 ) {
     try {
         // Merge default and "user" options
@@ -38,8 +38,8 @@ export async function fetchAPI(
             next: { revalidate: 60 }, // purge data cache & re-fetch data /interval
             headers: {
                 "Content-Type": "application/json",
-            },
-            ...options, // (3)
+                Authorization: `Bearer ${STRAPI_API_TOKEN}`
+            }
         };
 
         // Build request URL

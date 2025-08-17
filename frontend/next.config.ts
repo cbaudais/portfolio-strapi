@@ -1,12 +1,3 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
-
-// Access both local and remote media sources but still use the built-in Next.js Image Optimization API.
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -15,6 +6,10 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
         pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'funny-talent-236dd195b1.media.strapiapp.com',
       }
     ],
   },

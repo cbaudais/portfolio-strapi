@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Blog() {
   try {
-    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const token = process.env.STRAPI_API_TOKEN;
     const options = { headers: { Authorization: `Bearer ${token}` } };
     const query = '/posts';
     const urlParamsObject = {

@@ -9,7 +9,6 @@ import Loading from "@/components/Loader";
 
 async function getPostBySlug(slug: string) {
     try {
-        const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
         const path = `/projects`;
         const urlParamsObject = {
             filters: { slug },
@@ -22,8 +21,10 @@ async function getPostBySlug(slug: string) {
                 }
             },
         };
-        const options = { headers: { Authorization: `Bearer ${token}` } };
-        const response = await fetchAPI(path, urlParamsObject, options);
+        const response = await fetchAPI(
+            path,
+            urlParamsObject,
+        );
         return response;
     } catch (error) {
         console.log(error);
@@ -31,13 +32,16 @@ async function getPostBySlug(slug: string) {
 }
 
 async function getMetaData(slug: string) {
-    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+    const token = process.env.STRAPI_API_TOKEN;
     const path = `/projects`;
     const urlParamsObject = {
         filters: { slug },
     };
     const options = { headers: { Authorization: `Bearer ${token}` } };
-    const response = await fetchAPI(path, urlParamsObject, options);
+    const response = await fetchAPI(
+        path,
+        urlParamsObject,
+    );
     return response.data;
 }
 
@@ -69,15 +73,12 @@ export default async function PostRoute({ params }: { params: Promise<{ slug: st
 }
 
 export async function generateStaticParams() {
-    const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/projects`;
-    const options = { headers: { Authorization: `Bearer ${token}` } };
     const projectResponse = await fetchAPI(
         path,
         {
             populate: ['categories'],
         },
-        options
     );
 
     return projectResponse.data.map(
