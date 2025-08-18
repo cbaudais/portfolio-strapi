@@ -3,16 +3,15 @@ import { Section } from "@/components/Section";
 import PostList from "@/components/PostList";
 import { ErrorBoundary } from "react-error-boundary";
 import { Metadata } from "next";
+import { fetchAPI } from "@/utils/fetch-api";
 
 export const metadata: Metadata = {
   title: "Blog | Portfolio",
-  description: "Christina Baudais's Blog",
+  description: "Blog",
 };
 
-export default function Blog() {
+export default async function Blog() {
   try {
-    const token = process.env.STRAPI_API_TOKEN;
-    const options = { headers: { Authorization: `Bearer ${token}` } };
     const query = '/posts';
     const urlParamsObject = {
       filters: {
@@ -29,6 +28,11 @@ export default function Blog() {
         }
       },
     };
+    const responseData = await fetchAPI(
+      query,
+      urlParamsObject,
+    );
+    return responseData;
   } catch (error) {
     console.log(error);
   }

@@ -6,7 +6,7 @@ type Props = {}
 
 export const metadata: Metadata = {
   title: "About Me | Portfolio",
-  description: "About Christina Baudais",
+  description: "About",
 };
 
 export default function About(props: Props) {

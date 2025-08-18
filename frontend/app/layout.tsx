@@ -6,8 +6,8 @@ import { Suspense } from "react";
 import Loader from "./components/Loader";
 
 export const metadata: Metadata = {
-  title: "Christina Baudais | Portfolio",
-  description: "Christina Baudais's Portfolio",
+  title: "Portfolio",
+  description: "Portfolio Site",
 };
 
 export default async function RootLayout({

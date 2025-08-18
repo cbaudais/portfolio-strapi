@@ -87,7 +87,7 @@ const PostList = ({
                                     </div>} */}
                             </div>
                             <div className="mt-auto px-6">
-                                <Link href={`/${category}/${project.slug}`} className="py-2 mt-2 mb-4 space-x-1 flex w-fit hover:text-indigo-500">
+                                <Link href={`/${category}/${project.slug}`} className="py-2 px-3 mt-2 mb-4 space-x-1 flex w-fit btn-dark rounded-md">
                                     <p>See more </p>
                                     <IconCaretRightFilled size={18} viewBox="0 0 24 15" />
                                 </Link>

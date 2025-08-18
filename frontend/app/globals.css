@@ -61,7 +61,7 @@ body,
 .active,
 .markdown a {
   /* from browser router react */
-  @apply text-indigo-800 hover:text-indigo-800;
+  @apply text-sky-700 hover:text-sky-500;
 }
 
 .markdown>* {

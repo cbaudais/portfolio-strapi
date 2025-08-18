@@ -57,8 +57,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     }
     if (data.length === 0) { return notFound() }
     return {
-        title: catName + " | Christina Baudais",
-        description: "Christina Baudais's " + catName,
+        title: catName + " | Portfolio",
+        description: "Portfolio " + catName,
     }
 }
 

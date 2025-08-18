@@ -50,8 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const metadata = meta[0];
 
     return {
-        title: metadata.title + " | Christina Baudais",
-        description: "Christina Baudais's " + metadata.title + "project.",
+        title: metadata.title + " | Portfolio",
+        description: "Portfolio " + metadata.title + "project.",
     };
 }
 
