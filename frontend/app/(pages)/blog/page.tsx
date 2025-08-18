@@ -1,6 +1,6 @@
 import { FallbackFetch } from "@/components/ErrorFallback";
 import { Section } from "@/components/Section";
-import PostList from "@/components/PostList";
+// import PostList from "@/components/PostList";
 import { ErrorBoundary } from "react-error-boundary";
 import { Metadata } from "next";
 import { fetchAPI } from "@/utils/fetch-api";
@@ -28,11 +28,11 @@ export default async function Blog() {
         }
       },
     };
-    const responseData = await fetchAPI(
-      query,
-      urlParamsObject,
-    );
-    return responseData;
+    // const responseData = await fetchAPI(
+    //   query,
+    //   urlParamsObject,
+    // );
+    // return responseData;
   } catch (error) {
     console.log(error);
   }
