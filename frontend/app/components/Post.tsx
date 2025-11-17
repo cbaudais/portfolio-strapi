@@ -27,6 +27,7 @@ export default function Post({
 
     return (
         <article className="mt-8 space-y-8">
+            <h1 className="leading-tight text-5xl font-bold mt-8">{title}</h1>
             {imageUrl && (
                 <Image
                     src={imageUrl}
@@ -34,10 +35,9 @@ export default function Post({
                     width={0}
                     height={0}
                     sizes="100vw"
-                    className="w-full object-cover rounded-lg"
+                    className="w-1/2 object-cover rounded-lg"
                 />
             )}
-            <h1 className="leading-tight text-5xl font-bold mt-8">{title}</h1>
             <ReactMarkdown className="markdown text-grey" components={{ a: LinkRenderer }}>{description}</ReactMarkdown>
             {/* {data.attributes.blocks.map((section: any, index: number) => postRenderer(section, index))} */}
         </article >

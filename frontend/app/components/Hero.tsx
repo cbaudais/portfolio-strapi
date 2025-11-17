@@ -10,7 +10,7 @@ const Hero = () => {
       {/* bg-radial-gradient from-zinc-50 via-sky-400 to-violet-900 */}
       {/* bg-radial-gradient from-sky-100 via-sky-400 to-indigo-700 */}
       <div className="absolute"><Particle /></div>
-      <div className="w-11/12 mx-auto py-24">
+      <div className="w-11/12 mx-auto py-24 h-screen">
         <div className='grid-cols-1 grid md:grid-cols-[60%,auto] gap-12 items-center'>
           <div className=''>
             <h1 className='text-3xl lg:text-3xl font-bold'>
