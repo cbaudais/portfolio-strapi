@@ -1,7 +1,6 @@
 import { strapiProjects } from '@/types/types';
 import { getStrapiMedia } from '@/utils/fetch-api';
 // import { postRenderer } from '@/utils/post-renderer';
-// import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 

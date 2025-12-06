@@ -1,5 +1,3 @@
-import { type BlocksContent } from '@strapi/blocks-react-renderer';
-
 export type strapiProjects = {
     documentId: number,
     title: string;

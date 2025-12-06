@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@strapi/blocks-react-renderer": "^1.0.2",
     "@tabler/icons-react": "3.17.0",
     "@types/qs": "^6.9.17",
     "autoprefixer": "^10.4.20",
