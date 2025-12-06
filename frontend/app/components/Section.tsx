@@ -1,5 +1,5 @@
 type Props = {
-  children: React.ReactElement;
+  children: React.ReactElement<any>;
   outerDivClass?: string;
   innerDivClass?: string;
 }

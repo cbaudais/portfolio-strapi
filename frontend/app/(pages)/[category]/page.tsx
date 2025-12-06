@@ -40,7 +40,7 @@ async function fetchByCategory(filter: string) {
     }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { category: string } }): Promise<Metadata> {
     const filter = (await params).category;
     const { data } = await fetchByCategory(filter);
     let exitLoop = false;
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     }
 }
 
-export default async function CategoryRoute({ params }: { params: Promise<{ category: string }> }) {
+export default async function CategoryRoute({ params }: { params: { category: string } }) {
     const filter = (await params).category;
     const { data } = await fetchByCategory(filter);
     let exitLoop = false;
@@ -94,7 +94,7 @@ export default async function CategoryRoute({ params }: { params: Promise<{ cate
 }
 
 // Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams({ params }: { params: Promise<{ category: string }> }) {
+export async function generateStaticParams({ params }: { params: { category: string } }) {
     const filter = (await params).category;
     const { data } = await fetchByCategory(filter);
     if (data.length === 0) { return notFound() };

@@ -9,14 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@strapi/blocks-react-renderer": "^1.0.1",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "@tabler/icons-react": "3.17.0",
     "@types/qs": "^6.9.17",
     "autoprefixer": "^10.4.20",
-    "next": "^15.3.6",
+    "next": "16.0.7",
     "qs": "^6.13.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
     "react-error-boundary": "^5.0.0",
     "react-markdown": "^9.0.1",
     "react-tsparticles": "^2.12.2",
@@ -25,10 +25,14 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
   }
 }
